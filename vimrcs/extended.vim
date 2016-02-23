@@ -9,7 +9,7 @@
 " => GUI related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Set font according to system
-if has("mac") || has("macunix")
+if has("mac") || has("macunix") 
     set gfn=Hack:h14,Source\ Code\ Pro:h15,Menlo:h15
 elseif has("win16") || has("win32")
     set gfn=Hack:h14,Source\ Code\ Pro:h12,Bitstream\ Vera\ Sans\ Mono:h11
@@ -18,8 +18,11 @@ elseif has("gui_gtk2")
 elseif has("linux")
     set gfn=Hack\ 14,Source\ Code\ Pro\ 12,Bitstream\ Vera\ Sans\ Mono\ 11
 elseif has("unix")
-    set gfn=Monospace\ 11
+    set gfn=Terminess\ Powerline\ 13
+    "set gfn=Monospace\ 11
 endif
+
+set guifont=Terminess\ Powerline\ 13
 
 " Open MacVim in fullscreen mode
 if has("gui_macvim")
@@ -34,7 +37,9 @@ set guioptions-=l
 set guioptions-=L
 
 " Colorscheme
-if has("gui_running")
+if has("gui_running") || $COLORTERM == 'gnome-terminal' || $COLORTERM == 'rxvt-xpm' || $TERM == 'xterm-256color'
+ 
+    set t_Co=256
     set background=dark
     colorscheme peaksea
 else
